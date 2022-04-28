@@ -1,0 +1,40 @@
+package Selenium;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class SeleniumActivity11_1 {
+
+    public static void main(String[] args) {
+
+
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "//src//test//resources//geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://www.training-support.net/selenium/javascript-alerts");
+
+        //Click the button to open a simple alert
+        driver.findElement(By.cssSelector("button#simple")).click();
+
+        //Switch to alert window
+        Alert alert = driver.switchTo().alert();
+
+        //Get text in the alert box and print it
+        String alertText = alert.getText();
+        System.out.println("Alert text is: " + alertText);
+
+        //Close the alert box
+        alert.accept();
+
+        //Close the Browser
+        driver.close();
+
+    }
+}
